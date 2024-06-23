@@ -15,6 +15,11 @@ function AuthorizationStatusScreen() {
       details: "Details for pending status",
       date: "2024-06-25",
       comments: "Awaiting parent confirmation",
+      organizer: "Mr. Smith",
+      location: "Local Museum",
+      time: "10:00 AM",
+      participants: 30,
+      deadline: "2024-06-20",
     },
     {
       id: 2,
@@ -24,6 +29,11 @@ function AuthorizationStatusScreen() {
       details: "Details for approved status",
       date: "2024-06-24",
       comments: "All parents have approved",
+      organizer: "Coach Johnson",
+      location: "School Gym",
+      time: "2:00 PM",
+      participants: 20,
+      deadline: "2024-06-22",
     },
     {
       id: 3,
@@ -33,6 +43,11 @@ function AuthorizationStatusScreen() {
       details: "Details for declined status",
       date: "2024-06-23",
       comments: "Lack of interest from students",
+      organizer: "Ms. Lee",
+      location: "Classroom 3B",
+      time: "4:00 PM",
+      participants: 15,
+      deadline: "2024-06-21",
     },
     // Add more sample data as needed
   ]);
@@ -128,6 +143,11 @@ function AuthorizationStatusScreen() {
                       <th>Details</th>
                       <th>Date</th>
                       <th>Comments</th>
+                      <th>Organizer</th>
+                      <th>Location</th>
+                      <th>Time</th>
+                      <th>Participants</th>
+                      <th>Deadline</th>
                       <th>Action</th>
                       <th>Edit</th>
                     </tr>
@@ -154,6 +174,11 @@ function AuthorizationStatusScreen() {
                         <td>{auth.details}</td>
                         <td>{auth.date}</td>
                         <td>{auth.comments}</td>
+                        <td>{auth.organizer}</td>
+                        <td>{auth.location}</td>
+                        <td>{auth.time}</td>
+                        <td>{auth.participants}</td>
+                        <td>{auth.deadline}</td>
                         <td>
                           {auth.status === "Pending" && (
                             <>
