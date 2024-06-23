@@ -32,7 +32,7 @@ const LoginScreen = () => {
             <span className="text-1">Complete miles of journey <br /> with one step</span>
             <span className="text-2">Let's get started</span>
           </div>
-        </div>
+        </div> 
       </div>
       <div className="forms">
         <div className="form-content">
@@ -48,7 +48,7 @@ const LoginScreen = () => {
                   <i className="fas fa-lock"></i>
                   <input type="password" placeholder="Enter your password" required />
                 </div>
-                <div className="text"><a href="#">Forgot password?</a></div>
+                <div style={{fontWWeight: 'bold'}} className="text"><a href="#">Forgot password?</a></div>
                 <div className="button input-box">
                   <input type="submit" value="Submit" />
                 </div>
@@ -67,6 +67,10 @@ const LoginScreen = () => {
                 <div className="input-box">
                   <i className="fas fa-envelope"></i>
                   <input type="text" placeholder="Enter your email" required />
+                </div>
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+                  <input type="text" placeholder="Your Child's name" required />
                 </div>
                 <div className="input-box">
                   <i className="fas fa-lock"></i>

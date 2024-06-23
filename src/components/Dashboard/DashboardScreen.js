@@ -30,8 +30,7 @@ function DashboardScreen() {
       <main id="main" className="main">
         <div className="pagetitle">
           <h1>
-            {" "}
-            <span style={{ color: "green" }}>User's</span> Dashboard{" "}
+            <span style={{ color: "gray" }}>User's</span> Dashboard
           </h1>
           <nav>
             <ol className="breadcrumb">
@@ -47,6 +46,7 @@ function DashboardScreen() {
           <div className="row">
             <div className="col-lg-8">
               <div className="row">
+                {/* Activity Card */}
                 <div className="col-xxl-4 col-md-6">
                   <div className="card info-card activity-card">
                     <div className="filter">
@@ -78,13 +78,20 @@ function DashboardScreen() {
                     <div className="card-body">
                       <h5 className="card-title">Student Activities</h5>
                       <div className="d-flex align-items-center">
-                        <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <i style={{ color: "green" }} className="bi bi-activity"></i>
+                        <div
+                          className="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ backgroundColor: "lightgray" }}
+                        >
+                          <i
+                            style={{ color: "green" }}
+                            className="bi bi-activity"
+                          ></i>
                         </div>
                         <div className="ps-3">
                           <h6>Manage Activities</h6>
                           <span>
-                            View and manage all upcoming student activities that require parental authorization.
+                            View and manage all upcoming student activities that
+                            require parental authorization.
                           </span>
                         </div>
                       </div>
@@ -92,6 +99,7 @@ function DashboardScreen() {
                   </div>
                 </div>
 
+                {/* Authorization Card */}
                 <div className="col-xxl-4 col-md-6">
                   <div className="card info-card authorization-card">
                     <div className="filter">
@@ -123,13 +131,20 @@ function DashboardScreen() {
                     <div className="card-body">
                       <h5 className="card-title">Parental Authorizations</h5>
                       <div className="d-flex align-items-center">
-                        <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <i style={{ color: "blue" }} className="bi bi-shield-check"></i>
+                        <div
+                          className="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ backgroundColor: "lightgray" }}
+                        >
+                          <i
+                            style={{ color: "yellow" }}
+                            className="bi bi-shield-check"
+                          ></i>
                         </div>
                         <div className="ps-3">
                           <h6>Authorization Status</h6>
                           <span style={{ color: "green", fontSize: "80%" }}>
-                            Track the status of parental authorizations for various activities.
+                            Track the status of parental authorizations for
+                            various activities.
                           </span>
                         </div>
                       </div>
@@ -169,13 +184,20 @@ function DashboardScreen() {
                     <div className="card-body">
                       <h5 className="card-title">Monitoring</h5>
                       <div className="d-flex align-items-center">
-                        <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <i style={{ color: "purple" }} className="bi bi-graph-up"></i>
+                        <div
+                          className="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ backgroundColor: "lightgray" }}
+                        >
+                          <i
+                            style={{ color: "purple" }}
+                            className="bi bi-graph-up"
+                          ></i>
                         </div>
                         <div className="ps-3">
                           <h6>Track Authorizations</h6>
                           <span style={{ color: "green", fontSize: "80%" }}>
-                            Monitor and track the progress of authorization requests.
+                            Monitor and track the progress of authorization
+                            requests.
                           </span>
                         </div>
                       </div>
@@ -215,13 +237,20 @@ function DashboardScreen() {
                     <div className="card-body">
                       <h5 className="card-title">Feedback</h5>
                       <div className="d-flex align-items-center">
-                        <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                          <i style={{ color: "blue" }} className="bi bi-envelope"></i>
+                        <div
+                          className="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                          style={{ backgroundColor: "lightgray" }}
+                        >
+                          <i
+                            style={{ color: "yellow" }}
+                            className="bi bi-envelope"
+                          ></i>
                         </div>
                         <div className="ps-3">
                           <h6>Provide Feedback</h6>
                           <span style={{ color: "green", fontSize: "80%" }}>
-                            Click on the envelope icon to give feedback on how we can improve the authorization process.
+                            Click on the envelope icon to give feedback on how
+                            we can improve the authorization process.
                           </span>
                         </div>
                       </div>

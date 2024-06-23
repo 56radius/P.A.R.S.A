@@ -52,36 +52,36 @@ function Sidebar() {
         <ul className="sidebar-nav" id="sidebar-nav">
           <li className="nav-item">
             <a onClick={() => navigate("/dashboard")} className="nav-link">
-              <i className="bi bi-grid"></i>
-              <span style={{ color: "green" }}>Dashboard</span>
+              <i style={{ color: "green" }} className="bi bi-grid"></i>
+              <span style={{ color: "gray" }}>Dashboard</span>
             </a>
           </li>
 
           <li className="nav-item">
             <a onClick={() => navigate("/activity")} className="nav-link collapsed">
               <i className="bi bi-check-circle"></i>
-              <span>Activity Authorization</span>
+              <span style={{color: "black"}}>Activity Authorization</span>
             </a>
           </li>
 
           <li className="nav-item">
             <a onClick={() => navigate("/status")} className="nav-link collapsed">
               <i className="bi bi-info-circle"></i>
-              <span>Authorization Status</span>
+              <span style={{color: "black"}}>Authorization Status</span>
             </a>
           </li>
 
           <li className="nav-item">
             <a onClick={() => navigate("/forum")} className="nav-link collapsed">
               <i className="bi bi-envelope"></i>
-              <span>Feedback / Foruxm</span>
+              <span style={{color: "black"}}>Feedback / Foruxm</span>
             </a>
           </li>
 
           <li className="nav-item">
             <a onClick={() => navigate("/tracking")} className="nav-link collapsed">
               <i className="bi bi-bar-chart"></i>
-              <span>Tracking</span>
+              <span style={{color: "black"}}>Tracking</span>
             </a>
           </li>
 
@@ -91,7 +91,7 @@ function Sidebar() {
           <li className="nav-item">
             <a onClick={handleSignOut} className="nav-link collapsed">
               <i className="bi bi-box-arrow-in-right"></i>
-              <span>Logout</span>
+              <span style={{color: "black"}}>Logout</span>
             </a>
           </li>
         </ul>
