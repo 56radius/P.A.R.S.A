@@ -72,9 +72,9 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a onClick={() => navigate("/feedback")} className="nav-link collapsed">
+            <a onClick={() => navigate("/forum")} className="nav-link collapsed">
               <i className="bi bi-envelope"></i>
-              <span>Feedback</span>
+              <span>Feedback / Foruxm</span>
             </a>
           </li>
 

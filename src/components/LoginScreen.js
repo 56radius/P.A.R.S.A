@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logo from "../assets/img/health.png";
+import parent from "../assets/img/parent.jpg";
 import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome CSS  
 
 import "../assets/dashboard/assets/css/LoginScreen.css";
@@ -20,14 +20,14 @@ const LoginScreen = () => {
       <input type="checkbox" id="flip" />
       <div className="cover">
         <div className="front">
-          <img src={logo} alt="logo" />
+          <img src={parent} alt="parent" />
           <div className="text">
             <span className="text-1"> Control your Child <br /> New Child</span>
             <span className="text-2">Let's get connected</span>
           </div>
         </div>
         <div className="back">
-          <img src={logo} alt="logo" />
+          <img src={parent} alt="parent" />
           <div className="text">
             <span className="text-1">Complete miles of journey <br /> with one step</span>
             <span className="text-2">Let's get started</span>
