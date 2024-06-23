@@ -10,6 +10,7 @@ import SignupScreen from "./components/SignupScreen.js";
 //importimng dashboard components
 import DashboardScreen from "./components/Dashboard/DashboardScreen.js";
 import ActivityAuthorizationScreen from "./components/Dashboard/ActivityAuthorizationScreen.js";
+import AuthorizationStatusScreen from "./components/Dashboard/AuthorizationStatusScreen.js";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -33,6 +34,7 @@ function App() {
           <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
           <Route path="/activity" element={<ActivityAuthorizationScreen />} />
+          <Route path="/status" element={<AuthorizationStatusScreen />} />
         </Routes>
       </div>
     </Router>

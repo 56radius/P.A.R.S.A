@@ -53,7 +53,7 @@ body{
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #7d2ae8;
+  background: blue;
   opacity: 0.5;
   z-index: 12;
 }
@@ -117,7 +117,7 @@ body{
   bottom: 0;
   height: 3px;
   width: 25px;
-  background: #7d2ae8;
+  background: blue;
 }
 .forms .signup-form  .title:before{
   width: 20px;
@@ -146,11 +146,11 @@ body{
 }
 .form-content .input-box input:focus,
 .form-content .input-box input:valid{
-  border-color: #7d2ae8;
+  border-color: green;
 }
 .form-content .input-box i{
   position: absolute;
-  color: #7d2ae8;
+  color: blue;
   font-size: 17px;
 }
 .forms .form-content .text{
@@ -170,14 +170,14 @@ body{
 }
 .forms .form-content .button input{
   color: #fff;
-  background: #7d2ae8;
+  background: green;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
   transition: all 0.4s ease;
 }
 .forms .form-content .button input:hover{
-  background: #5b13b9;
+  background: green;
 }
 .forms .form-content label{
   color: #5b13b9;

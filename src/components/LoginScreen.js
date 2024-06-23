@@ -22,7 +22,7 @@ const LoginScreen = () => {
         <div className="front">
           <img src={logo} alt="logo" />
           <div className="text">
-            <span className="text-1">Every new friend is a <br /> new adventure</span>
+            <span className="text-1"> Control your Child <br /> New Child</span>
             <span className="text-2">Let's get connected</span>
           </div>
         </div>

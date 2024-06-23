@@ -3,12 +3,33 @@ import Headerbar from "../Elements/Headerbar";
 import Sidebar from "../Elements/Sidebar";
 
 function ActivityAuthorizationScreen() {
-  // Sample data for activity authorizations with status
+  // Sample data for activity authorizations with initial status as Pending
   const [authorizations, setAuthorizations] = useState([
     { id: 1, title: "School Trips", status: "Pending" },
-    { id: 2, title: "Sports Events", status: "Approved" },
-    { id: 3, title: "Extra Classes", status: "Declined" },
+    { id: 2, title: "Sports Events", status: "Pending" },
+    { id: 3, title: "Extra Classes", status: "Pending" },
+    { id: 4, title: "Field Trip", status: "Pending" },
+    { id: 5, title: "Music Concert", status: "Pending" },
+    { id: 6, title: "Dance Competition", status: "Pending" },
+    { id: 7, title: "Science Fair", status: "Pending" },
+    { id: 8, title: "Art Exhibition", status: "Pending" },
+    { id: 9, title: "Community Service", status: "Pending" },
+    { id: 10, title: "Coding Workshop", status: "Pending" },
+    { id: 11, title: "Chess Tournament", status: "Pending" },
+    { id: 12, title: "Robotics Club", status: "Pending" },
   ]);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // Number of items per page
+
+  // Logic to calculate pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = authorizations.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Function to handle page change
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Function to handle approval action
   const handleApprove = (id) => {
@@ -55,7 +76,7 @@ function ActivityAuthorizationScreen() {
 
         <section className="section">
           <div className="row">
-            {authorizations.map((auth) => (
+            {currentItems.map((auth) => (
               <div key={auth.id} className="col-xxl-4 col-md-6">
                 <div className="card info-card authorization-card">
                   <div className="card-body">
@@ -123,6 +144,19 @@ function ActivityAuthorizationScreen() {
               </div>
             ))}
           </div>
+
+          {/* Pagination */}
+          <nav className="mt-4">
+            <ul className="pagination justify-content-center">
+              {Array.from({ length: Math.ceil(authorizations.length / itemsPerPage) }, (_, index) => (
+                <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                  <button onClick={() => paginate(index + 1)} className="page-link">
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </section>
       </main>
 
