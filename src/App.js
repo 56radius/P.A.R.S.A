@@ -5,7 +5,11 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SplashScreen from "./components/SplashScreen";
 import LoginScreen from "./components/LoginScreen";
 import SignupScreen from "./components/SignupScreen.js";
+
+
+//importimng dashboard components
 import DashboardScreen from "./components/Dashboard/DashboardScreen.js";
+import ActivityAuthorizationScreen from "./components/Dashboard/ActivityAuthorizationScreen.js";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -28,6 +32,7 @@ function App() {
           />
           <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
+          <Route path="/activity" element={<ActivityAuthorizationScreen />} />
         </Routes>
       </div>
     </Router>

@@ -58,7 +58,7 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a onClick={() => navigate("/activity-authorization")} className="nav-link collapsed">
+            <a onClick={() => navigate("/activity")} className="nav-link collapsed">
               <i className="bi bi-check-circle"></i>
               <span>Activity Authorization</span>
             </a>
