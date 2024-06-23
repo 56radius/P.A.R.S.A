@@ -16,7 +16,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <div className="container">
+    <div style={{}} className="container">
       <input type="checkbox" id="flip" />
       <div className="cover">
         <div className="front">
