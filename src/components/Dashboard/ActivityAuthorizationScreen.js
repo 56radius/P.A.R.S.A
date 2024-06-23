@@ -62,7 +62,7 @@ function ActivityAuthorizationScreen() {
         <div className="pagetitle">
           <h1>
             {" "}
-            <span style={{ color: "green" }}>Activity</span> Authorization{" "}
+            <span style={{ color: "gray" }}>Activity</span> Authorization{" "}
           </h1>
           <nav>
             <ol className="breadcrumb">
