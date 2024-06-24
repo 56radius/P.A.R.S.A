@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import parent from "../assets/img/parent.jpg";
 import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome CSS  
-
+import SignupForm from "../components/Elements/SignupForm";
 import "../assets/dashboard/assets/css/LoginScreen.css";
 
 const AuthScreen = () => {
@@ -16,7 +16,7 @@ const AuthScreen = () => {
   };
 
   return (
-    <div style={{}} className="container">
+    <div className="container">
       <input type="checkbox" id="flip" />
       <div className="cover">
         <div className="front">
@@ -48,7 +48,7 @@ const AuthScreen = () => {
                   <i className="fas fa-lock"></i>
                   <input type="password" placeholder="Enter your password" required />
                 </div>
-                <div style={{fontWWeight: 'bold'}} className="text"><a href="#">Forgot password?</a></div>
+                <div style={{fontWeight: 'bold'}} className="text"><a href="#">Forgot password?</a></div>
                 <div className="button input-box">
                   <input type="submit" value="Submit" />
                 </div>
@@ -56,37 +56,7 @@ const AuthScreen = () => {
               </div>
             </form>
           </div>
-          <div className="signup-form">
-            <div className="title">Signup</div>
-            <form action="#">
-              <div className="input-boxes">
-                <div className="input-box">
-                  <i className="fas fa-user"></i>
-                  <input type="text" placeholder="Enter your name" required />
-                </div>
-                <div className="input-box">
-                  <i className="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter your email" required />
-                </div>
-                <div className="input-box">
-                  <i className="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter Phone Number" required />
-                </div>
-                <div className="input-box">
-                  <i className="fas fa-envelope"></i>
-                  <input type="text" placeholder="Your Child's name" required />
-                </div>
-                <div className="input-box">
-                  <i className="fas fa-lock"></i>
-                  <input type="password" placeholder="Enter your password" required />
-                </div>
-                <div className="button input-box">
-                  <input type="submit" value="Submit" />
-                </div>
-                <div className="text sign-up-text">Already have an account? <label htmlFor="flip">Login now</label></div>
-              </div>
-            </form>
-          </div>
+          <SignupForm />
         </div>
       </div>
     </div>
