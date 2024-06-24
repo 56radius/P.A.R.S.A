@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome CSS
 
 import "../assets/dashboard/assets/css/LoginScreen.css";
 
-const LoginScreen = () => {
+const AuthScreen = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -93,4 +93,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default AuthScreen;

@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 //importing the main components
 import SplashScreen from "./components/SplashScreen";
-import LoginScreen from "./components/LoginScreen";
-import SignupScreen from "./components/SignupScreen.js";
-
+import AuthScreen from "./components/AuthScreen.js";
 
 //importimng dashboard components
 import DashboardScreen from "./components/Dashboard/DashboardScreen.js";
@@ -31,9 +29,8 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={showSplash ? <SplashScreen /> : <LoginScreen />}
+            element={showSplash ? <SplashScreen /> : <AuthScreen />}
           />
-          <Route path="/register" element={<SignupScreen />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
           <Route path="/activity" element={<ActivityAuthorizationScreen />} />
           <Route path="/status" element={<AuthorizationStatusScreen />} />
