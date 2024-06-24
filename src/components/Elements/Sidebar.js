@@ -79,11 +79,11 @@ function Sidebar() {
           </li>
 
           <li className="nav-item">
-            <a onClick={() => navigate("/tracking")} className="nav-link collapsed">
-              <i className="bi bi-bar-chart"></i>
-              <span style={{color: "black"}}>Tracking</span>
-            </a>
-          </li>
+    <a onClick={() => navigate("/resources")} className="nav-link collapsed">
+      <i className="bi bi-book"></i>
+      <span style={{color: "black"}}>Resource Center</span>
+    </a>
+  </li>
 
           <li className="nav-heading">Pages</li>
 

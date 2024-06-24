@@ -12,6 +12,7 @@ import DashboardScreen from "./components/Dashboard/DashboardScreen.js";
 import ActivityAuthorizationScreen from "./components/Dashboard/ActivityAuthorizationScreen.js";
 import AuthorizationStatusScreen from "./components/Dashboard/AuthorizationStatusScreen.js";
 import ForumScreen from "./components/Dashboard/ForumScreen.js";
+import ResourceCenterScreen from "./components/Dashboard/ResourceCenterScreen.js";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -37,6 +38,7 @@ function App() {
           <Route path="/activity" element={<ActivityAuthorizationScreen />} />
           <Route path="/status" element={<AuthorizationStatusScreen />} />
           <Route path="/forum" element={<ForumScreen />} />
+          <Route path="/resources" element={<ResourceCenterScreen />} />
         </Routes>
       </div>
     </Router>
