@@ -70,6 +70,10 @@ const LoginScreen = () => {
                 </div>
                 <div className="input-box">
                   <i className="fas fa-envelope"></i>
+                  <input type="text" placeholder="Enter Phone Number" required />
+                </div>
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
                   <input type="text" placeholder="Your Child's name" required />
                 </div>
                 <div className="input-box">
