@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
 
-// Import Firebase modules
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../../backend/firebase.config"; // Assuming the Firebase config file is in this path
-
-// Importing CSS files
-import "../.././assets/dashboard/assets/css/style.css";
-import "../.././assets/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css";
-import "../.././assets/dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css";
-import "../.././assets/dashboard/assets/vendor/boxicons/css/boxicons.min.css";
-import "../.././assets/dashboard/assets/vendor/quill/quill.snow.css";
-import "../.././assets/dashboard/assets/vendor/quill/quill.bubble.css";
-import "../.././assets/dashboard/assets/vendor/remixicon/remixicon.css";
-import "../.././assets/dashboard/assets/vendor/simple-datatables/style.css";
+// Importing CSS files (adjust paths as per your project structure)
+import "../../assets/dashboard/assets/css/style.css";
+import "../../assets/dashboard/assets/vendor/bootstrap/css/bootstrap.min.css";
+import "../../assets/dashboard/assets/vendor/bootstrap-icons/bootstrap-icons.css";
+import "../../assets/dashboard/assets/vendor/boxicons/css/boxicons.min.css";
+import "../../assets/dashboard/assets/vendor/quill/quill.snow.css";
+import "../../assets/dashboard/assets/vendor/quill/quill.bubble.css";
+import "../../assets/dashboard/assets/vendor/remixicon/remixicon.css";
+import "../../assets/dashboard/assets/vendor/simple-datatables/style.css";
 
 function Headerbar() {
     const navigate = useNavigate();
@@ -24,41 +19,8 @@ function Headerbar() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [notifications, setNotifications] = useState(2); // Example: starting with 2 notifications
-
-    useEffect(() => {
-        const auth = getAuth();
-        
-        const fetchUserData = async (user) => {
-            try {
-                console.log("Fetching data for user:", user.uid);
-                const userDoc = doc(db, "users", user.uid);
-                const docSnap = await getDoc(userDoc);
-                
-                if (docSnap.exists()) {
-                    const userData = docSnap.data();
-                    console.log("User Data:", userData);
-                    setFullName(userData.fullName || "No Name Found");
-                } else {
-                    console.log("No such document!");
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-            }
-        };
-
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                console.log("User is signed in:", user.uid);
-                fetchUserData(user);
-            } else {
-                console.log("No user is signed in");
-            }
-        });
-
-        return () => unsubscribe();
-    }, []);
+    const [fullName, setFullName] = useState('John Doe'); // Example name
+    const [notifications, setNotifications] = useState(2); // Example notifications count
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -82,14 +44,8 @@ function Headerbar() {
             cancelButtonText: "Cancel",
         }).then((result) => {
             if (result.isConfirmed) {
-                const auth = getAuth();
-                signOut(auth)
-                    .then(() => {
-                        navigate("/");
-                    })
-                    .catch((error) => {
-                        console.error("Error signing out:", error);
-                    });
+                // Perform sign out logic here
+                navigate("/");
             }
         });
     };
@@ -121,41 +77,22 @@ function Headerbar() {
                                 <li>
                                     <hr className="dropdown-divider" />
                                 </li>
-                                <li className="notification-item">
-                                    <i className="bi bi-exclamation-circle text-warning"></i>
-                                    <div>
-                                        <h4>New Activity</h4>
-                                        <p>There is a new activity scheduled for next week.</p>
-                                        <p>Just now</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <hr className="dropdown-divider" />
-                                </li>
-                                <li className="notification-item">
-                                    <i className="bi bi-exclamation-circle text-warning"></i>
-                                    <div>
-                                        <h4>Reminder</h4>
-                                        <p>Don't forget to submit your feedback for the recent event.</p>
-                                        <p>30 mins ago</p>
-                                    </div>
-                                </li>
-                                {/* Add more notification items as needed */}
+                                {/* Notification items */}
                             </ul>
                         </li>
 
                         <li className="nav-item dropdown pe-3">
                             <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                                <span className="d-none d-md-block dropdown-toggle ps-2">{fullName || "Loading..."}</span>
+                                <span className="d-none d-md-block dropdown-toggle ps-2">{fullName}</span>
                             </a>
 
                             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                                 <li className="dropdown-header">
-                                    <h6>{fullName || "Loading..."}</h6>
+                                    <h6>{fullName}</h6>
                                     <span>Web Designer</span>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item d-flex align-items-center" onClick={() => navigate("/profile")}>
+                                    <a className="dropdown-item d-flex align-items-center" href="#">
                                         <i className="bi bi-person"></i>
                                         <span>My Profile</span>
                                     </a>
@@ -164,7 +101,7 @@ function Headerbar() {
                                     <hr className="dropdown-divider" />
                                 </li>
                                 <li>
-                                    <a className="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                    <a className="dropdown-item d-flex align-items-center" href="#">
                                         <i className="bi bi-gear"></i>
                                         <span>Account Settings</span>
                                     </a>

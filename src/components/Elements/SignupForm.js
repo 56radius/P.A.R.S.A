@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { authConfig, db } from "../../backend/firebase.config"; // Correct import
+import Swal from 'sweetalert2';
+import { collection, addDoc } from 'firebase/firestore';
 import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome CSS  
 
 const SignupForm = () => {
@@ -11,6 +15,7 @@ const SignupForm = () => {
     childName: '',
     password: '',
   });
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -19,11 +24,49 @@ const SignupForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would handle form submission and authentication logic
-    console.log(formData);
-    navigate('/dashboard');
+    setLoading(true);
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        authConfig,
+        formData.email,
+        formData.password
+      );
+
+      const user = userCredential.user;
+
+      const userData = {
+        name: formData.name,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        childName: formData.childName,
+        uid: user.uid,
+      };
+
+      await addDoc(collection(db, 'users'), userData);
+
+      await sendEmailVerification(user);
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Signup successful! Verification email sent.',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Signup error: ', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Signup failed!',
+        text: error.message,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -87,9 +130,9 @@ const SignupForm = () => {
             />
           </div>
           <div className="button input-box">
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" disabled={loading} />
           </div>
-          <div className="text sign-up-text">Already have an account? <label htmlFor="flip">Login now</label></div>
+          <div className="text sign-up-text">Already have an account? <label htmlFor='flip'>Login now</label></div>
         </div>
       </form>
     </div>
