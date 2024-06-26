@@ -12,9 +12,11 @@ const AuthScreen = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false); // State for loading
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Show the loader
     try {
       await signInWithEmailAndPassword(authConfig, email, password);
       navigate('/dashboard');
@@ -24,6 +26,8 @@ const AuthScreen = () => {
         title: 'Login Failed',
         text: error.message,
       });
+    } finally {
+      setLoading(false); // Hide the loader
     }
   };
 
@@ -74,8 +78,9 @@ const AuthScreen = () => {
                 </div>
                 <div style={{fontWeight: 'bold'}} className="text"><a href="#">Forgot password?</a></div>
                 <div className="button input-box">
-                  <input type="submit" value="Submit" />
+                  <input type="submit" value="Submit" disabled={loading} />
                 </div>
+                {loading && <div className="loader">Loading...</div>} {/* Spinner */}
                 <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Signup now</label></div>
               </div>
             </form>
