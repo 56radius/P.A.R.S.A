@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import Swal from 'sweetalert2';
 import parent from "../assets/img/parent.jpg";
 import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome CSS  
 import SignupForm from "../components/Elements/SignupForm";
 import "../assets/dashboard/assets/css/LoginScreen.css";
+import { authConfig } from "../backend/firebase.config"; // Correct import of auth
 
 const AuthScreen = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would handle form submission and authentication logic
-    navigate('/dashboard');
+    try {
+      await signInWithEmailAndPassword(authConfig, email, password);
+      navigate('/dashboard');
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: error.message,
+      });
+    }
   };
 
   return (
@@ -42,11 +54,23 @@ const AuthScreen = () => {
               <div className="input-boxes">
                 <div className="input-box">
                   <i className="fas fa-envelope"></i>
-                  <input type="text" placeholder="Enter your email" required />
+                  <input 
+                    type="text" 
+                    placeholder="Enter your email" 
+                    required 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </div>
                 <div className="input-box">
                   <i className="fas fa-lock"></i>
-                  <input type="password" placeholder="Enter your password" required />
+                  <input 
+                    type="password" 
+                    placeholder="Enter your password" 
+                    required 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
                 <div style={{fontWeight: 'bold'}} className="text"><a href="#">Forgot password?</a></div>
                 <div className="button input-box">
