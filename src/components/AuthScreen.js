@@ -76,11 +76,11 @@ const AuthScreen = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                <div style={{fontWeight: 'bold'}} className="text"><a href="#">Forgot password?</a></div>
+                <div style={{fontWeight: 'bold'}} className="text"><a onClick={() => navigate("/reset")}>Forgot password?</a></div>
                 <div className="button input-box">
                   <input type="submit" value="Submit" disabled={loading} />
+                  {loading && <div className="loader"></div>} {/* Spinner */}
                 </div>
-                {loading && <div className="loader">Loading...</div>} {/* Spinner */}
                 <div className="text sign-up-text">Don't have an account? <label htmlFor="flip">Signup now</label></div>
               </div>
             </form>

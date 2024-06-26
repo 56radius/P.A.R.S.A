@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //importing the main components
 import SplashScreen from "./components/SplashScreen";
 import AuthScreen from "./components/AuthScreen.js";
+import ForgotPasswordScreen from "./components/ForgotPasswordScreen.js";
 
 //importimng dashboard components
 import DashboardScreen from "./components/Dashboard/DashboardScreen.js";
@@ -33,6 +34,7 @@ function App() {
           />
           <Route path="/dashboard" element={<DashboardScreen />} />
           <Route path="/activity" element={<ActivityAuthorizationScreen />} />
+          <Route path="/reset" element={<ForgotPasswordScreen />} />
           <Route path="/status" element={<AuthorizationStatusScreen />} />
           <Route path="/forum" element={<ForumScreen />} />
           <Route path="/resources" element={<ResourceCenterScreen />} />
