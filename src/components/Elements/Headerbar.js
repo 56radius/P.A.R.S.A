@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from 'react-modal';
 import Swal from 'sweetalert2';
+import { getAuth } from "firebase/auth";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import app from "../../backend/firebase.config"; // Adjust the import path based on your project structure
 
 // Importing CSS files (adjust paths as per your project structure)
 import "../../assets/dashboard/assets/css/style.css";
@@ -19,8 +22,33 @@ function Headerbar() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
-    const [fullName, setFullName] = useState('John Doe'); // Example name
+    const [fullName, setFullName] = useState(''); // Initialize as empty
     const [notifications, setNotifications] = useState(2); // Example notifications count
+
+    const auth = getAuth();
+    const db = getFirestore(app);
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            const user = auth.currentUser;
+            if (user) {
+                const userDocRef = doc(db, "users", user.uid);
+                try {
+                    const userDoc = await getDoc(userDocRef);
+                    if (userDoc.exists()) {
+                        console.log("User document data:", userDoc.data()); // Log document data
+                        setFullName(userDoc.data().name);
+                    } else {
+                        console.log("No such document!");
+                    }
+                } catch (error) {
+                    console.error("Error fetching user document:", error);
+                }
+            }
+        };
+
+        fetchUserData();
+    }, [auth, db]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
