@@ -32,11 +32,12 @@ function Headerbar() {
         const fetchUserData = async () => {
             const user = auth.currentUser;
             if (user) {
+                console.log("Current user ID:", user.uid);
                 const userDocRef = doc(db, "users", user.uid);
                 try {
                     const userDoc = await getDoc(userDocRef);
                     if (userDoc.exists()) {
-                        console.log("User document data:", userDoc.data()); // Log document data
+                        console.log("User document data:", userDoc.data());
                         setFullName(userDoc.data().name);
                     } else {
                         console.log("No such document!");
@@ -44,6 +45,8 @@ function Headerbar() {
                 } catch (error) {
                     console.error("Error fetching user document:", error);
                 }
+            } else {
+                console.log("No user is currently logged in");
             }
         };
 
@@ -111,7 +114,7 @@ function Headerbar() {
 
                         <li className="nav-item dropdown pe-3">
                             <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                                <span className="d-none d-md-block dropdown-toggle ps-2">{fullName}</span>
+                                <span className="d-none d-md-block dropdown-toggle ps-2">{fullName || "Loading..."}</span>
                             </a>
 
                             <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
