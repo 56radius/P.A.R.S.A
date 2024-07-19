@@ -54,9 +54,9 @@ const SignupForm = () => {
         title: 'Signup successful! Verification email sent.',
         showConfirmButton: false,
         timer: 1500,
+      }).then(() => {
+        navigate('/dashboard');
       });
-
-      navigate('/dashboard');
     } catch (error) {
       console.error('Signup error: ', error);
       Swal.fire({
